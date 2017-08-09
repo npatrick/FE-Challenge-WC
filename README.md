@@ -11,7 +11,7 @@ npm install
 ```
 Run webpack: 
 ```sh
-npm run bundle
+npm run build
 ```
 Then, run the server: 
 ```sh
