@@ -4,6 +4,7 @@ This repository is simply a basic setup that I want to have ready for multiple u
 ## To Run The App
 
 * This app runs on Node.js, please install the recommended version from the official site
+
 Download all packages: 
 ```sh
 npm install
