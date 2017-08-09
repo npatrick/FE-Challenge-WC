@@ -4,6 +4,16 @@ This repository is simply a basic setup that I want to have ready for multiple u
 ## To Run The App
 
 * This app runs on Node.js, please install the recommended version from the official site
-* Download all packages: npm install
-* Run the server: npm start
+* Download all packages: 
+```sh
+npm install
+```
+* Run webpack: 
+```sh
+npm run bundle
+```
+* Then, run the server: 
+```sh
+npm start
+```
 * Check the web app @: http://localhost:3000
