@@ -28,13 +28,6 @@ module.exports = {
 		]
 	},
 	node: {
-		console: false,
-		global: true,
-		process: true,
-		__filname: 'mock',
-		__dirname: 'mock',
-		Buffer: true,
-		setImmediate: true,
 		dns: 'mock',
 		net: 'mock'
 	},

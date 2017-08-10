@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import fetch, { fetchUrl } from 'fetch';
-
-const options = {
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Access-Control-Allow-Methods, Access-Control-Allow-Origin, cache-control, pragma'
-  }
-};
+const fetchUrl = require('fetch').fetchUrl;
 
 export default class Table extends Component {
   constructor(props) {
@@ -21,9 +13,11 @@ export default class Table extends Component {
   }
 
   CountryList () {
-    fetchUrl('https://restcountries.eu/rest/v2/all', options, (err, meta, body) => {
-      console.log('what is body??', body);
-      this.setState({countries: body});
+    fetchUrl('https://restcountries.eu/rest/v2/all', (err, meta, body) => {
+      if (err) {
+        throw err;
+      }
+      console.log('what is body??', JSON.parse(body));
     });
   }
 
