@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import fetch, { fetchUrl } from 'fetch';
 
-const headerOptions = {
-  'access-control-allow-origin': '*',
-  'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'access-control-allow-headers': 'content-type, accept'
+const options = {
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Access-Control-Allow-Methods, Access-Control-Allow-Origin, cache-control, pragma'
+  }
 };
 
 export default class Table extends Component {
@@ -19,7 +21,7 @@ export default class Table extends Component {
   }
 
   CountryList () {
-    fetchUrl('https://restcountries.eu/rest/v2/all', headerOptions, (err, meta, body) => {
+    fetchUrl('https://restcountries.eu/rest/v2/all', options, (err, meta, body) => {
       console.log('what is body??', body);
       this.setState({countries: body});
     });
