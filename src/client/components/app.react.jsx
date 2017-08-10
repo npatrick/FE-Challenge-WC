@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import Table from './table.react.jsx';
 
 export default class App extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+  }
+
+  render () {
     return (
       <div>
-        <h1>Hello World!</h1>
+        <h1>Country List</h1>
+        <br />
         <Table />
       </div>
     );
