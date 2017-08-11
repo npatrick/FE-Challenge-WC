@@ -7,28 +7,39 @@ export default class Table extends Component {
   }
 
   renderCountryList () {
+    console.log('what it looks?', this.props);
     return this.props.countries.map((item, index) => {
-      let format;
+      let callingCodes,
+          timezones,
+          subregion
       if (item.callingCodes.length > 1) {
-        format = item.callingCodes.join(', ');
+        callingCodes = item.callingCodes.join(', ');
+      } else if (item.callingCodes.length < 1) {
+        callingCodes = 'N/A'
       } else {
-        format = item.callingCodes;
+        callingCodes = item.callingCodes;
       }
       if (item.timezones.length > 1) {
-        format = item.timezones.join(', ');
+        timezones = item.timezones.join(', ');
       } else {
-        format = item.timezones;
+        timezones = item.timezones;
       }
+      if (typeof item.subregion === 'string' && item.subregion.length < 1) {
+        subregion = 'N/A'
+      } else {
+        subregion = item.subregion
+      }
+
       return (
           <TableListItem
             key={item.name}
             flag={item.flag}
             name={item.name}
             countryCode={item.alpha2Code}
-            continent={item.continent}
+            continent={subregion}
             capital={item.capital}
-            callingCodes={format}
-            timezones={format} />
+            callingCodes={callingCodes}
+            timezones={timezones} />
       )
     });
   }
