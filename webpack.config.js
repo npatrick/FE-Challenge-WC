@@ -27,10 +27,6 @@ module.exports = {
 			}
 		]
 	},
-	node: {
-		dns: 'mock',
-		net: 'mock'
-	},
 	devServer: {
 		port: 3000,
 		inline: true
