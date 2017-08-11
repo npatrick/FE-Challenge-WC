@@ -34,6 +34,7 @@ export default class App extends Component {
     this.setState({
       currentPage: Number(event.target.id)
     });
+    window.scrollTo(0,0);
   }
 
   render () {
