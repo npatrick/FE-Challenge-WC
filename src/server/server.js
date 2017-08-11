@@ -12,4 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public/')));
 
+// pings the app every 15 mins
+setInterval(() => http.get('https://pure-bayou-59471.herokuapp.com'), 900000);
+
 module.exports = app;
