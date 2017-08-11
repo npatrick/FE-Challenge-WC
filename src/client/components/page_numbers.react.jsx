@@ -5,30 +5,42 @@ export default class PageNumbers extends Component {
     super(props);
   }
 
-  displayPages() {
-    const { countries, currentPage, itemPerPage } = this.props;
-    const indexOfLastItem = currentPage * itemPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemPerPage;
-    const currentItems = countries.slice(indexOfFirstItem, indexOfLastItem);
+  render() {
+    const liStyle = {
+      'marginRight': '0.3em',
+      'color': 'blue',
+      'userSelect': 'none',
+      'cursor': 'pointer'
+    };
+    const pageNumStyle = {
+      'listStyle': 'none',
+      'display': 'flex'
+    };
 
-    const renderItems = currentItems.map((item, index) => {
-      return <Table countries={item} />
-    });
-    // page nums
+    console.log('check on props', this.props);
+    const { countries, itemPerPage } = this.props;
+
+    // page num to render
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(countries.length / itemPerPage); i++) {
       pageNumbers.push(i);
     }
-    const renderPageNumbers = pageNumbers.map(num => {
-      return (
-        <li
-          key={num}
-          id={num}
-          onClick={this.handelClick}
-        >
-          {num}
-        </li>
-      );
-    });
+
+    return (
+      <ul id='page-numbers' style={pageNumStyle}>
+        {pageNumbers.map(num => {
+          return (
+            <li 
+              style={liStyle}
+              key={num}
+              id={num}
+              onClick={this.props.handleClick}
+            >
+              {num}
+            </li>
+          );
+        })}
+      </ul>
+    )
   }
 };

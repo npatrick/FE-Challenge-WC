@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from './table.react.jsx';
+import PageNumbers from './page_numbers.react.jsx';
 
 export default class App extends Component {
   constructor(props) {
@@ -37,40 +38,13 @@ export default class App extends Component {
   }
 
   render () {
-    // stylenum
-    const listStyle = {
-      'marginRight': '0.3em',
-      'userSelect': 'none',
-      'cursor': 'pointer'
-    };
-
     // displaying pages
     const { countries, currentPage, itemPerPage } = this.state;
     const indexOfLastItem = currentPage * itemPerPage;
     const indexOfFirstItem = indexOfLastItem - itemPerPage;
     const currentItems = countries.slice(indexOfFirstItem, indexOfLastItem);
-    // console.log('currentItems before mapping??', currentItems);
-    // const renderItems = currentItems.map((item, index) => {
-    //   return <Table key={index} countries={item} />
-    // });
 
-    // page nums
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(countries.length / itemPerPage); i++) {
-      pageNumbers.push(i);
-    }
-    const renderPageNumbers = pageNumbers.map(num => {
-      return (
-        <li
-          key={num}
-          id={num}
-          onClick={this.handleClick}
-          style={listStyle}
-        >
-          {num}
-        </li>
-      );
-    });
+    
     // filtering
     let toRender = this.state.countries;
     if (this.state.filter) {
@@ -80,18 +54,15 @@ export default class App extends Component {
     // <input type='text' onChange={this.filter.bind(this)} />
     // <Table countries={toRender} />
 
-    const pageNumStyle = {
-      'listStyle': 'none',
-      'display': 'flex'
-    }
     return (
       <div>
         <h1>Country List</h1>
         <br />
         <Table countries={currentItems} />
-        <ul id='page-numbers' style={pageNumStyle}>
-          {renderPageNumbers}
-        </ul>
+        <PageNumbers 
+          countries={this.state.countries}
+          itemPerPage={this.state.itemPerPage}
+          handleClick={this.handleClick} />
       </div>
     );
   }
