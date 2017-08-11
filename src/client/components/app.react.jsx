@@ -20,12 +20,21 @@ export default class App extends Component {
     })
   }
 
+  filter(event) {
+    this.setState({filter: event.target.value});
+  }
+
   render () {
+    let toRender = this.state.countries;
+    if (this.state.filter) {
+      toRender = this.state.countries.filter(item => item.name.toLowerCase().includes(this.state.filter.toLowerCase()));
+    }
     return (
       <div>
         <h1>Country List</h1>
         <br />
-        <Table countries={this.state.countries} />
+        <input type="text" onChange={this.filter.bind(this)} />
+        <Table countries={toRender} />
       </div>
     );
   }
