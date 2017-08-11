@@ -5,12 +5,12 @@ export default class Table extends Component {
   constructor(props) {
     super(props);
   }
-
   renderCountryList () {
     return this.props.countries.map((item, index) => {
       let callingCodes,
           timezones,
-          subregion
+          subregion;
+      // conditional statements for empty fields
       if (item.callingCodes.length > 1) {
         callingCodes = item.callingCodes.join(', ');
       } else if (item.callingCodes.length < 1) {
@@ -28,7 +28,7 @@ export default class Table extends Component {
       } else {
         subregion = item.subregion
       }
-
+      // passing data to its child
       return (
           <TableListItem
             key={item.name}
