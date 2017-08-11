@@ -4,6 +4,7 @@
   "description": "Super basic server setup with Node.js",
   "main": "index.js",
   "scripts": {
+    "postinstall": "webpack -p --config webpack.config.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/server/index.js",
     "build": "node_modules/.bin/webpack -w"
