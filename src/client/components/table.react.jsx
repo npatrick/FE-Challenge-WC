@@ -44,11 +44,8 @@ export default class Table extends Component {
   }
 
   render () {
-    const tableStyle = {
-      'width': '100%'
-    };
     return (
-      <table style={tableStyle}>
+      <table className='table-container'>
         <thead>
           <tr>
             <th>Flag</th>

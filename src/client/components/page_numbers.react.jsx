@@ -6,17 +6,6 @@ export default class PageNumbers extends Component {
   }
 
   render() {
-    const liStyle = {
-      'marginRight': '0.3em',
-      'color': 'blue',
-      'userSelect': 'none',
-      'cursor': 'pointer'
-    };
-    const pageNumStyle = {
-      'listStyle': 'none',
-      'display': 'flex'
-    };
-
     // page num to render
     const { countries, itemPerPage } = this.props;
     const pageNumbers = [];
@@ -25,11 +14,10 @@ export default class PageNumbers extends Component {
     }
 
     return (
-      <ul id='page-numbers' style={pageNumStyle}>
+      <ul id='page-numbers'>
         {pageNumbers.map(num => {
           return (
             <li 
-              style={liStyle}
               key={num}
               id={num}
               onClick={this.props.handleClick}
