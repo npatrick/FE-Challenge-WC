@@ -11,6 +11,11 @@ body {
   border-radius: 4px;
 }
 
+.flag-pics {
+  display: block;
+  width: 50%;
+}
+/* Table Styles */
 .table-container {
   width: 100%;
   border-collapse: collapse;
@@ -28,11 +33,9 @@ th {
 td {
   padding: 2% 3%;
 }
+/*//////////////////*/
 
-.flag-pics {
-  display: block;
-}
-
+/* Page List Styles */
 #page-numbers {
   list-style: none;
   display: flex;
@@ -47,3 +50,4 @@ td {
   user-select: 'none';
   cursor: pointer;
 }
+/*//////////////////*/

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const TableListItem = (props) => {
   return (
     <tr>
-      <td><img className='flag-pics' src={props.flag} width={'60%'} /></td>
+      <td><img className='flag-pics' src={props.flag} /></td>
       <td>{props.name}</td>
       <td>{props.countryCode}</td>
       <td>{props.continent}</td>
