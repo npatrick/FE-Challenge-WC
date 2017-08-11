@@ -1,6 +1,13 @@
+@import url("reset.css");
+
 body {
   margin: 3% 15%;
   font-family: Helvetica;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: xx-large;
 }
 
 #search-box {
@@ -28,9 +35,11 @@ tr {
 th {
   padding: 2% 5%;
   color: #344d58;
+  font-weight: bold;
 }
 
 td {
+  width: 15%;
   padding: 2% 3%;
 }
 /*//////////////////*/
