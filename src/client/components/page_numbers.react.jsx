@@ -17,10 +17,8 @@ export default class PageNumbers extends Component {
       'display': 'flex'
     };
 
-    console.log('check on props', this.props);
-    const { countries, itemPerPage } = this.props;
-
     // page num to render
+    const { countries, itemPerPage } = this.props;
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(countries.length / itemPerPage); i++) {
       pageNumbers.push(i);

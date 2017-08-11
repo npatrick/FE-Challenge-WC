@@ -31,39 +31,45 @@ export default class App extends Component {
   }
 
   handleClick(event) {
-    console.log('triggered!!');
     this.setState({
       currentPage: Number(event.target.id)
     });
   }
 
   render () {
-    // displaying pages
+    // page logic
     const { countries, currentPage, itemPerPage } = this.state;
     const indexOfLastItem = currentPage * itemPerPage;
     const indexOfFirstItem = indexOfLastItem - itemPerPage;
     const currentItems = countries.slice(indexOfFirstItem, indexOfLastItem);
 
-    
-    // filtering
+    // filtering or normal rendering of pages
     let toRender = this.state.countries;
     if (this.state.filter) {
       toRender = this.state.countries.filter(item => item.name.toLowerCase().includes(this.state.filter.toLowerCase()));
+      return (
+        <div>
+          <h1>Country List</h1>
+          <br />
+          <span>Search by Country Name: </span>
+          <input type='text' onChange={this.filter.bind(this)} />
+          <Table countries={toRender} />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h1>Country List</h1>
+          <br />
+          <span>Search by Country Name: </span>
+          <input type='text' onChange={this.filter.bind(this)} />
+          <Table countries={currentItems} />
+          <PageNumbers 
+            countries={this.state.countries}
+            itemPerPage={this.state.itemPerPage}
+            handleClick={this.handleClick} />
+        </div>
+      );
     }
-    //     <span>Search by Country Name: </span>
-    // <input type='text' onChange={this.filter.bind(this)} />
-    // <Table countries={toRender} />
-
-    return (
-      <div>
-        <h1>Country List</h1>
-        <br />
-        <Table countries={currentItems} />
-        <PageNumbers 
-          countries={this.state.countries}
-          itemPerPage={this.state.itemPerPage}
-          handleClick={this.handleClick} />
-      </div>
-    );
   }
 }

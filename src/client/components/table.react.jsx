@@ -7,7 +7,6 @@ export default class Table extends Component {
   }
 
   renderCountryList () {
-    console.log('what it looks?', this.props);
     return this.props.countries.map((item, index) => {
       let callingCodes,
           timezones,
