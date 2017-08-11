@@ -3,13 +3,21 @@ body {
   font-family: Helvetica;
 }
 
+#search-box {
+  width: 20%;
+  padding: 1% 1%;
+  margin-right: 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .table-container {
   width: 100%;
   border-collapse: collapse;
 }
 
 tr {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.19);
 }
 
 th {

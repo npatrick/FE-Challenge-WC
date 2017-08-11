@@ -52,8 +52,7 @@ export default class App extends Component {
         <div>
           <h1>Country List</h1>
           <br />
-          <span>Search by Country Name: </span>
-          <input type='text' onChange={this.filter.bind(this)} />
+          <input id='search-box' type='text' placeholder='Search by Country Name...' onChange={this.filter.bind(this)} />
           <Table countries={toRender} />
         </div>
       )
@@ -62,8 +61,7 @@ export default class App extends Component {
         <div>
           <h1>Country List</h1>
           <br />
-          <span>Search by Country Name: </span>
-          <input type='text' onChange={this.filter.bind(this)} />
+          <input id='search-box' type='text' placeholder='Search by Country Name...' onChange={this.filter.bind(this)} />
           <Table countries={currentItems} />
           <PageNumbers 
             countries={this.state.countries}
