@@ -9,7 +9,7 @@ const PageNumbers = (props) => {
   }
 
   return (
-    <ul id='page-numbers'>
+    <ul id='page-numbers' className='row'>
       {pageNumbers.map(num => {
         return (
           <li 
