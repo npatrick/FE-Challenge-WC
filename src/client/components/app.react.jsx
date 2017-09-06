@@ -49,7 +49,7 @@ export default class App extends Component {
     if (this.state.filter) {
       toRender = this.state.countries.filter(item => item.name.toLowerCase().includes(this.state.filter.toLowerCase()));
       return (
-        <div>
+        <div className='container'>
           <h1>Country List</h1>
           <br />
           <input id='search-box' type='text' placeholder='Search by Country Name...' onChange={this.filter.bind(this)} />
@@ -58,7 +58,7 @@ export default class App extends Component {
       )
     } else {
       return (
-        <div>
+        <div className='container'>
           <h1>Country List</h1>
           <br />
           <input id='search-box' type='text' placeholder='Search by Country Name...' onChange={this.filter.bind(this)} />
